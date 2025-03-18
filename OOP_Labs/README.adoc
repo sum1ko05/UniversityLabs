@@ -1,0 +1,5 @@
+= Current status of laboratory work
+
+- 1. PointsAndVectors, already done, pending approval
+- 2. NeatConsole, nothing
+- 3. LoggingSystem, nothing
