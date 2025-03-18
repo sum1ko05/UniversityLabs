@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 = Current status of laboratory work
-=======
-#Current status of laboratory work
->>>>>>> 99710164bd0bd3c8e4b3beee127cc1d59d207285
 
 - 1. ConvexHull, approved by teacher, only raw code for public
 - 2. NestedTriangles, nothing
