@@ -1,7 +1,0 @@
-= Current status of laboratory work
-
-- 1. PointsAndVectors, already done, pending approval
-- 2. NeatConsole, already done, pending approval
-- 3. LoggingSystem, nothing
-- 4. ValidationAndAutoupdate, nothing
-- 5. AuthorizationSystem, nothing
