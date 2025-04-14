@@ -30,6 +30,14 @@ class Table():
     def y(self) -> list:
         return list(point[1] for point in self.points)
     
+    def swap_x_y(self) -> None:
+        new_points = []
+        for point in self.points:
+            new_point = (point[1], point[0])
+            new_points.append(new_point)
+        self.points = new_points
+        self.title = (self.title[1], self.title[0])
+    
 class LineFunction():
     def __init__(self, w0: float, w1: float, x: list):
         self.w0 = w0
