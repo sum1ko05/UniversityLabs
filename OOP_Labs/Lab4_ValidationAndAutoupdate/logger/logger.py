@@ -1,0 +1,15 @@
+from logger import log_filter
+from logger import log_handler
+
+
+class Logger:
+    def __init__(self,
+                 filters: list[log_filter.LogFilterProtocol],
+                 handlers: list[log_handler.LogHandlerProtocol]):
+        self.filters = filters
+        self.handlers = handlers
+        
+    def log(self, text: str):
+        if any(filter_cls.match(text) for filter_cls in self.filters):
+            for handler in self.handlers:
+                handler.handle(text)

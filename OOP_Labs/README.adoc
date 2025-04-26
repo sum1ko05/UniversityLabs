@@ -1,8 +1,8 @@
 = Current status of laboratory work
 
-- 1. PointsAndVectors, complete transition to different architecture, pending approval
-- 2. NeatConsole, minor fixes, pending approval
-- 3. LoggingSystem, nothing
-- 4. ValidationAndAutoupdate, nothing
+- 1. PointsAndVectors, approved by teacher
+- 2. NeatConsole, approved by teacher
+- 3. LoggingSystem, only missing SysLogHandler implementation
+- 4. ValidationAndAutoupdate, made rough sketch, changed might needed
 - 5. AuthorizationSystem, nothing
 - 6. idk
