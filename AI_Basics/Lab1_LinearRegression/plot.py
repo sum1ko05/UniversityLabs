@@ -19,6 +19,7 @@ def process_data(file_name: str, swap_data: bool) -> None:
     # Init plot
     fig, ax = plt.subplots()
 
+    fig.set_size_inches((6, 6))
     ax.set_xlabel(table.title[0])
     ax.set_ylabel(table.title[1])
 
