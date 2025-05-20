@@ -1,3 +1,6 @@
 = Current status of laboratory work
 
-- 1. LinearRegression, already done, pending approval
+- 1. LinearRegression, no response, probably approved
+- 2. Classification, no response, probably approved
+- 3. Neuron, no response, probably approved
+- 4. NeuralNetworks, no response, probably approved
