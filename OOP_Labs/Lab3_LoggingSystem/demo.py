@@ -4,8 +4,6 @@ from logger import Logger
 
 filters = [
         log_filter.SimpleLogFilter('IMPORTANT'),
-        log_filter.SimpleLogFilter('INFO'),
-        log_filter.RegexLogFilter(r'(ERROR|WARNING) \d+')
         ]
 
 handlers = [

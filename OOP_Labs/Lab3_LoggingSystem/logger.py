@@ -10,6 +10,6 @@ class Logger:
         self.handlers = handlers
         
     def log(self, text: str):
-        if any(filter_cls.match(text) for filter_cls in self.filters):
+        if all(filter_cls.match(text) for filter_cls in self.filters):
             for handler in self.handlers:
                 handler.handle(text)

@@ -24,7 +24,7 @@ class Observable(change_listener.DataChangedProtocol):
         for listener in self._listeners:
             listener.on_property_changed(self, property_name, old_value, new_value)
 
-class Validable(Observable, change_listener.DataChangingProtocol):
+class Validatable(Observable, change_listener.DataChangingProtocol):
     def __init__(self):
         super().__init__()
         # Changing through add/remove

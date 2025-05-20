@@ -1,10 +1,10 @@
 from typing import Protocol, Any
 import change_listener
-from observable import Observable, Validable
+from observable import Observable, Validatable
 from logger.logger import Logger
 
 
-class Person(Validable):
+class Person(Validatable):
     def __init__(self, name: str, age: int):
         super().__init__()
         self._name = name
@@ -38,7 +38,7 @@ class Person(Validable):
         return f'Name: {self.name} \t Age: {self.age}'
 
 #region validators
-class CommonAgeValidator(change_listener.PropertyChangingListenerProtocol):
+class AgeValidator(change_listener.PropertyChangingListenerProtocol):
     def on_property_changing(self, obj: Any, property_name: str, 
                              old_value: int, new_value: int) -> bool:
         if property_name == 'age':
@@ -50,17 +50,6 @@ class CommonAgeValidator(change_listener.PropertyChangingListenerProtocol):
                 return False
         return True
     
-class MinorAgeValidator(change_listener.PropertyChangingListenerProtocol):
-    def on_property_changing(self, obj: Any, property_name: str, 
-                             old_value: int, new_value: int) -> bool:
-        if property_name == 'age':
-            if new_value < 0:
-                print(f"Error: Age cannot be negative! Remaining {old_value} for {obj}")
-                return False
-            if new_value > 17:
-                print(f"Error: Don't try to fool the system! Remaining {old_value} for {obj}")
-                return False
-        return True
 
 class NameValidator(change_listener.PropertyChangingListenerProtocol):
     def on_property_changing(self, obj: Any, property_name: str, 

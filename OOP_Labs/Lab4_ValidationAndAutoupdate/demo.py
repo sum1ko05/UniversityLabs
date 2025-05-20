@@ -1,4 +1,4 @@
-from person import Person, CommonAgeValidator, NameValidator, PropertyLogger
+from person import Person, AgeValidator, NameValidator, PropertyLogger
 from logger.logger import Logger
 from logger.log_filter import SimpleLogFilter
 from logger.log_handler import ConsoleLogHandler, FileLogHandler
@@ -9,7 +9,7 @@ logger = PropertyLogger(Logger([SimpleLogFilter('Info'), SimpleLogFilter('Error'
                                       [ConsoleLogHandler(), FileLogHandler('logs/log.log')]))
 person.add_property_changed_listener(logger)
     
-age_validator = CommonAgeValidator()
+age_validator = AgeValidator()
 name_validator = NameValidator()
 person.add_property_changing_listener(age_validator)
 person.add_property_changing_listener(name_validator)
