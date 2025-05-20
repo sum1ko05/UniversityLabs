@@ -1,0 +1,18 @@
+[
+    {
+        "id": 0,
+        "login": "reimu",
+        "password": "ab0bus",
+        "name": "Reimu Hakurei",
+        "email": null,
+        "address": null
+    },
+    {
+        "id": 1,
+        "login": "kirisame",
+        "password": "2281337",
+        "name": "Marisa Kirisame",
+        "email": null,
+        "address": null
+    }
+]
