@@ -5,5 +5,5 @@
 - 3. LoggingSystem, approved by teacher
 - 4. ValidationAndAutoupdate, approved by teacher
 - 5. AuthorizationSystem, made rough sketch, changes might needed
-- 6. VirtualKeyboard, nothing
+- 6. VirtualKeyboard, made rough sketch, changes might needed
 - 7. DependencyInjection, nothing
