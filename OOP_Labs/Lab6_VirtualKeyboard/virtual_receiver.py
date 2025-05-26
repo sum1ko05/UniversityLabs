@@ -1,7 +1,7 @@
 from neat_console.printer_base import Color, Printer
-#from memento import ReceiverMemento
 import os
 clear = lambda: os.system('cls')
+
 
 class ReceiverMemento:
     def __init__(self, properties: dict):
@@ -9,6 +9,7 @@ class ReceiverMemento:
 
     def get_state(self) -> dict:
         return self.prop_state
+
 
 # Receiver
 class VirtualReceiver:
@@ -32,11 +33,11 @@ class VirtualReceiver:
 
     def volume_up(self):
         self.__volume = min(self.__volume + 10, 100)
-        print(f"__volume: {self.__volume}")
+        print(f"Volume: {self.__volume}")
 
     def volume_down(self):
         self.__volume = max(self.__volume - 10, 0)
-        print(f"__volume: {self.__volume}")
+        print(f"Volume: {self.__volume}")
 
     def media_player(self):
         self.media_player_state = not self.media_player_state
@@ -48,14 +49,14 @@ class VirtualReceiver:
     def create_memento(self) -> ReceiverMemento:
         print("State saved")
         return ReceiverMemento({'string': self.__string,
-                                'console': self.neat_console,
+                                # 'console': self.neat_console,
                                 'volume': self.__volume,
                                 'media': self.media_player_state})
 
     def load_memento(self, memento: ReceiverMemento):
         state = memento.get_state()
         self.__string = state['string']
-        self.neat_console = state['console']
+        # self.neat_console = state['console']
         self.__volume = state['volume']
         self.media_player_state = state['media']
 

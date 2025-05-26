@@ -1,21 +1,24 @@
-from virtual_keyboard import RealKeyboard
+from invokers import RealKeyboard
 from virtual_receiver import VirtualReceiver
-from memento import MemoryMementoManager
+from memento import MemoryMementoManager, JSONMementoManager
 import commands
 import keyboard
+from enum import Enum
+
+
+class Keys(Enum):
+    Volume_down = 'f3'
+    Volume_up = 'f4'
+
 
 def dummy(event):
     pass
 
+
 receiver = VirtualReceiver()
 real_keyboard = RealKeyboard()
-memento_manager = MemoryMementoManager(receiver)
+memento_manager = JSONMementoManager(receiver, file_path="saves/memento.json")
 real_keyboard.command = commands.KeyCommand(receiver)
-'''real_keyboard.execute(key='o')
-real_keyboard.execute(key='w')
-real_keyboard.execute(key='s')
-real_keyboard.execute(key='backspace')
-real_keyboard.execute(key='o')'''
 
 while True:
     pressed_key = keyboard.read_key()
@@ -28,14 +31,11 @@ while True:
     elif pressed_key == 'esc':
         break
     elif pressed_key == 'ctrl':
-        memento_manager.load_state()
-        keyboard.on_release(dummy)
-        continue
+        real_keyboard.command = commands.LoadStateCommand(memento_manager)
     elif pressed_key == 'alt':
-        memento_manager.save_state()
-        keyboard.on_release(dummy)
-        continue
+        real_keyboard.command = commands.SaveStateCommand(memento_manager)
     else:
         real_keyboard.command = commands.KeyCommand(receiver)
     real_keyboard.execute(key=pressed_key)
     keyboard.on_release(dummy)
+#
