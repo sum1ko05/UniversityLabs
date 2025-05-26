@@ -11,6 +11,12 @@ class MementoManagerProtocol(Protocol):
     def load_state(self):
         ...
 
+    def undo(self):
+        ...
+
+    def redo(self):
+        ...
+
 
 class MemoryMementoManager(MementoManagerProtocol):
     def __init__(self, receiver: VirtualReceiver):
@@ -26,6 +32,12 @@ class MemoryMementoManager(MementoManagerProtocol):
         else:
             self.receiver.load_memento(self.memento)
 
+    def undo(self):
+        pass
+
+    def redo(self):
+        pass
+
 
 class JSONMementoManager(MementoManagerProtocol):
     def __init__(self, receiver: VirtualReceiver, file_path: str):
@@ -37,7 +49,7 @@ class JSONMementoManager(MementoManagerProtocol):
         # self.memento = self.receiver.create_memento()
         try:
             with open(self.file_path, 'w') as file:
-                json.dump(self.receiver.create_memento().prop_state, file)
+                json.dump(self.receiver.create_memento().prop_state, file, indent=4)
         except FileNotFoundError:
             raise FileNotFoundError(f"File wasn't found at {self.file_path}")
 
@@ -48,3 +60,9 @@ class JSONMementoManager(MementoManagerProtocol):
                 self.receiver.load_memento(ReceiverMemento(memento_dict))
         except (FileNotFoundError, json.JSONDecodeError, KeyError):
             print("Save slot is empty or wasn't found!")  # No memento found
+
+    def undo(self):
+        pass
+
+    def redo(self):
+        pass

@@ -4,6 +4,6 @@
 - 2. NeatConsole, approved by teacher
 - 3. LoggingSystem, approved by teacher
 - 4. ValidationAndAutoupdate, approved by teacher
-- 5. AuthorizationSystem, made rough sketch, changes might needed
+- 5. AuthorizationSystem, approved by teacher
 - 6. VirtualKeyboard, made rough sketch, changes might needed
 - 7. DependencyInjection, nothing
