@@ -54,3 +54,19 @@ class LoadStateCommand(CommandProtocol):
 
     def execute(self, **kwargs):
         self.__executor.load_state()
+
+
+class UndoCommand(CommandProtocol):
+    def __init__(self, executor: MementoManagerProtocol):
+        self.__executor = executor
+
+    def execute(self, **kwargs):
+        self.__executor.undo()
+
+
+class RedoCommand(CommandProtocol):
+    def __init__(self, executor: MementoManagerProtocol):
+        self.__executor = executor
+
+    def execute(self, **kwargs):
+        self.__executor.redo()

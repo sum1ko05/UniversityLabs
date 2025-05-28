@@ -20,6 +20,9 @@ real_keyboard = RealKeyboard()
 memento_manager = JSONMementoManager(receiver, file_path="saves/memento.json")
 real_keyboard.command = commands.KeyCommand(receiver)
 
+real_keyboard.command = commands.LoadStateCommand(memento_manager)
+real_keyboard.execute()
+
 while True:
     pressed_key = keyboard.read_key()
     if pressed_key == 'f3':
@@ -31,11 +34,15 @@ while True:
     elif pressed_key == 'esc':
         break
     elif pressed_key == 'ctrl':
-        real_keyboard.command = commands.LoadStateCommand(memento_manager)
+        real_keyboard.command = commands.UndoCommand(memento_manager)
     elif pressed_key == 'alt':
-        real_keyboard.command = commands.SaveStateCommand(memento_manager)
+        real_keyboard.command = commands.RedoCommand(memento_manager)
     else:
         real_keyboard.command = commands.KeyCommand(receiver)
     real_keyboard.execute(key=pressed_key)
+    if (type(real_keyboard.command) != type(commands.UndoCommand(memento_manager)) and 
+        type(real_keyboard.command) != type(commands.RedoCommand(memento_manager))):
+        real_keyboard.command = commands.SaveStateCommand(memento_manager)
+        real_keyboard.execute()
     keyboard.on_release(dummy)
-#
+#sop

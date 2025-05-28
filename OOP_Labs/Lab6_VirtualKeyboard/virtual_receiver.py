@@ -9,6 +9,9 @@ class ReceiverMemento:
 
     def get_state(self) -> dict:
         return self.prop_state
+    
+    def __str__(self):
+        return self.prop_state
 
 
 # Receiver
@@ -47,7 +50,7 @@ class VirtualReceiver:
             print("Media player OFF")
 
     def create_memento(self) -> ReceiverMemento:
-        print("State saved")
+        print("Memento saved")
         return ReceiverMemento({'string': self.__string,
                                 # 'console': self.neat_console,
                                 'volume': self.__volume,
@@ -60,5 +63,8 @@ class VirtualReceiver:
         self.__volume = state['volume']
         self.media_player_state = state['media']
 
-        print("State loaded")
+        print("Memento loaded")
         self.neat_console.print(self.__string)
+        print(f"Volume: {self.__volume}")
+        print(f"Media player {"ON" if self.media_player_state == True else "OFF"}")
+

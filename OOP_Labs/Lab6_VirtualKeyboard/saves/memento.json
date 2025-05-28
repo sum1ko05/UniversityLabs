@@ -1,1 +1,95 @@
-{"string": "skibididopdop", "volume": 50, "media": false}
+{
+    "current_memento": {
+        "string": "skibidi boop",
+        "volume": 80,
+        "media": false
+    },
+    "undo_stack": [
+        {
+            "string": "",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "s",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "ss",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "s",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "sk",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "ski",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "skib",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "skibi",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "skibid",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "skibidi",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "skibidi ",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "skibidi b",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "skibidi bo",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "skibidi boo",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "skibidi boop",
+            "volume": 50,
+            "media": false
+        },
+        {
+            "string": "skibidi boop",
+            "volume": 60,
+            "media": false
+        },
+        {
+            "string": "skibidi boop",
+            "volume": 70,
+            "media": false
+        }
+    ],
+    "redo_stack": []
+}
