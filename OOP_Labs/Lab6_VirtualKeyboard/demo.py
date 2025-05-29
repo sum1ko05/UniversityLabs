@@ -25,17 +25,17 @@ real_keyboard.execute()
 
 while True:
     pressed_key = keyboard.read_key()
-    if pressed_key == 'f3':
+    if pressed_key == 'up':
         real_keyboard.command = commands.VolumeUpCommand(receiver)
-    elif pressed_key == 'f2':
+    elif pressed_key == 'down':
         real_keyboard.command = commands.VolumeDownCommand(receiver)
     elif pressed_key == 'f7':
         real_keyboard.command = commands.MediaPlayerCommand(receiver)
     elif pressed_key == 'esc':
         break
-    elif pressed_key == 'ctrl':
+    elif pressed_key == 'left':
         real_keyboard.command = commands.UndoCommand(memento_manager)
-    elif pressed_key == 'alt':
+    elif pressed_key == 'right':
         real_keyboard.command = commands.RedoCommand(memento_manager)
     else:
         real_keyboard.command = commands.KeyCommand(receiver)
@@ -44,5 +44,6 @@ while True:
         type(real_keyboard.command) != type(commands.RedoCommand(memento_manager))):
         real_keyboard.command = commands.SaveStateCommand(memento_manager)
         real_keyboard.execute()
+    #print(pressed_key)
     keyboard.on_release(dummy)
 #sop
