@@ -1,7 +1,6 @@
-from virtual_receiver import VirtualReceiver
 from typing import Protocol
 import json
-from virtual_receiver import ReceiverMemento
+from originator import CompositeOriginator, CompositeMemento
 
 
 class MementoManagerProtocol(Protocol):
@@ -19,16 +18,16 @@ class MementoManagerProtocol(Protocol):
 
 
 class MemoryMementoManager(MementoManagerProtocol):
-    def __init__(self, receiver: VirtualReceiver):
+    def __init__(self, receiver: CompositeOriginator):
         self.receiver = receiver
-        self.current_memento = self.receiver.create_memento()
+        self.current_memento = self.receiver.create_composite_memento()
         self.undo_stack = list()
         self.redo_stack = list()
 
     def save_state(self):
         self.undo_stack.append(self.current_memento)
         self.redo_stack.clear()
-        self.current_memento = self.receiver.create_memento()
+        self.current_memento = self.receiver.create_composite_memento()
 
     def load_state(self):
         pass  # Not suitable for memory-only implementation
@@ -39,7 +38,7 @@ class MemoryMementoManager(MementoManagerProtocol):
             return
         self.redo_stack.append(self.current_memento)
         self.current_memento = self.undo_stack.pop()
-        self.receiver.load_memento(self.current_memento)
+        self.receiver.load_composite_memento(self.current_memento)
 
     def redo(self):
         if not self.redo_stack: # Is redo_stack empty
@@ -47,14 +46,14 @@ class MemoryMementoManager(MementoManagerProtocol):
             return
         self.undo_stack.append(self.current_memento)
         self.current_memento = self.redo_stack.pop()
-        self.receiver.load_memento(self.current_memento)
+        self.receiver.load_composite_memento(self.current_memento)
 
 
 class JSONMementoManager(MementoManagerProtocol):
-    def __init__(self, receiver: VirtualReceiver, file_path: str):
+    def __init__(self, receiver: CompositeOriginator, file_path: str):
         self.receiver = receiver
         self.file_path = file_path
-        self.current_memento = self.receiver.create_memento()
+        self.current_memento = self.receiver.create_composite_memento()
         self.undo_stack = list()
         self.redo_stack = list()
 
@@ -62,11 +61,12 @@ class JSONMementoManager(MementoManagerProtocol):
         try:
             with open(self.file_path, 'r') as f:
                 json_dict = json.load(f)
-                # print(json_dict)
-                self.current_memento = ReceiverMemento(json_dict["current_memento"])
-                self.undo_stack = [ReceiverMemento(data) for data in json_dict["undo_stack"]]
-                self.redo_stack = [ReceiverMemento(data) for data in json_dict["redo_stack"]]
-                # self.receiver.load_memento(ReceiverMemento(memento_dict))
+                if len(json_dict) > 0:
+                    # print(json_dict)
+                    self.current_memento = CompositeMemento(json_dict["current_memento"])
+                    self.undo_stack = [CompositeMemento(data) for data in json_dict["undo_stack"]]
+                    self.redo_stack = [CompositeMemento(data) for data in json_dict["redo_stack"]]
+                    # self.receiver.load_memento(ReceiverMemento(memento_dict))
         except (FileNotFoundError, json.JSONDecodeError, KeyError) as error:
             raise error  # No memento found
         
@@ -85,12 +85,12 @@ class JSONMementoManager(MementoManagerProtocol):
     def save_state(self):
         self.undo_stack.append(self.current_memento)
         self.redo_stack.clear()
-        self.current_memento = self.receiver.create_memento()
+        self.current_memento = self.receiver.create_composite_memento()
         self._save_data()
 
     def load_state(self):
         self._load_data()
-        self.receiver.load_memento(self.current_memento)
+        self.receiver.load_composite_memento(self.current_memento)
 
     def undo(self):
         self._load_data()
@@ -99,7 +99,7 @@ class JSONMementoManager(MementoManagerProtocol):
             return
         self.redo_stack.append(self.current_memento)
         self.current_memento = self.undo_stack.pop()
-        self.receiver.load_memento(self.current_memento)
+        self.receiver.load_composite_memento(self.current_memento)
         self._save_data()
 
     def redo(self):
@@ -109,5 +109,5 @@ class JSONMementoManager(MementoManagerProtocol):
             return
         self.undo_stack.append(self.current_memento)
         self.current_memento = self.redo_stack.pop()
-        self.receiver.load_memento(self.current_memento)
+        self.receiver.load_composite_memento(self.current_memento)
         self._save_data()

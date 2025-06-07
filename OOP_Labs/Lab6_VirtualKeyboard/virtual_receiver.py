@@ -1,9 +1,10 @@
 from neat_console.printer_base import Color, Printer
+from typing import Protocol
 import os
 clear = lambda: os.system('cls')
 
 
-class ReceiverMemento:
+class SaveableMemento:
     def __init__(self, properties: dict):
         self.prop_state = properties
 
@@ -12,17 +13,22 @@ class ReceiverMemento:
     
     def __str__(self):
         return self.prop_state
+    
+
+class SaveableProtocol(Protocol):
+    def create_memento(self):
+        ...
+
+    def load_memento(self, memento: SaveableMemento):
+        ...
 
 
-# Receiver
-class VirtualReceiver:
+class SaveableTyper(SaveableProtocol):
     def __init__(self):
         self.__string = ""
         self.neat_console = Printer(color=Color.LightWhite,
                                     position=(0, 0),
                                     font_path="neat_console/default.json")
-        self.__volume = 50
-        self.media_player_state = False
 
     def press_key(self, key: str):
         clear()
@@ -33,6 +39,23 @@ class VirtualReceiver:
         elif key.isalpha() and len(key) == 1:
             self.__string = self.__string + key
         self.neat_console.print(self.__string)
+
+    def create_memento(self) -> SaveableMemento:
+        print("Typer memento saved")
+        return SaveableMemento({'string': self.__string})
+
+    def load_memento(self, memento: SaveableMemento):
+        state = memento.get_state()
+        self.__string = state['string']
+
+        print("Typer memento loaded")
+        self.neat_console.print(self.__string)
+
+
+class SaveableMediaPlayer(SaveableProtocol):
+    def __init__(self):
+        self.__volume = 50
+        self.media_player_state = False
 
     def volume_up(self):
         self.__volume = min(self.__volume + 10, 100)
@@ -49,22 +72,17 @@ class VirtualReceiver:
         else:
             print("Media player OFF")
 
-    def create_memento(self) -> ReceiverMemento:
-        print("Memento saved")
-        return ReceiverMemento({'string': self.__string,
-                                # 'console': self.neat_console,
-                                'volume': self.__volume,
+    def create_memento(self) -> SaveableMemento:
+        print("Player memento saved")
+        return SaveableMemento({'volume': self.__volume,
                                 'media': self.media_player_state})
 
-    def load_memento(self, memento: ReceiverMemento):
+    def load_memento(self, memento: SaveableMemento):
         state = memento.get_state()
-        self.__string = state['string']
-        # self.neat_console = state['console']
         self.__volume = state['volume']
         self.media_player_state = state['media']
 
-        print("Memento loaded")
-        self.neat_console.print(self.__string)
+        print("Player memento loaded")
         print(f"Volume: {self.__volume}")
         print(f"Media player {"ON" if self.media_player_state == True else "OFF"}")
 

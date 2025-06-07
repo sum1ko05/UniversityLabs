@@ -1,25 +1,123 @@
 {
     "current_memento": {
-        "string": "owo",
-        "volume": 50,
-        "media": false
+        "typer": {
+            "string": "mmulti"
+        },
+        "player": {
+            "volume": 60,
+            "media": true
+        }
     },
     "undo_stack": [
         {
-            "string": "",
-            "volume": 50,
-            "media": false
+            "typer": {
+                "string": ""
+            },
+            "player": {
+                "volume": 50,
+                "media": false
+            }
         },
         {
-            "string": "o",
-            "volume": 50,
-            "media": false
+            "typer": {
+                "string": "m"
+            },
+            "player": {
+                "volume": 50,
+                "media": false
+            }
         },
         {
-            "string": "ow",
-            "volume": 50,
-            "media": false
+            "typer": {
+                "string": "mm"
+            },
+            "player": {
+                "volume": 50,
+                "media": false
+            }
+        },
+        {
+            "typer": {
+                "string": "mmu"
+            },
+            "player": {
+                "volume": 50,
+                "media": false
+            }
+        },
+        {
+            "typer": {
+                "string": "mmul"
+            },
+            "player": {
+                "volume": 50,
+                "media": false
+            }
+        },
+        {
+            "typer": {
+                "string": "mmul"
+            },
+            "player": {
+                "volume": 50,
+                "media": true
+            }
+        },
+        {
+            "typer": {
+                "string": "mmult"
+            },
+            "player": {
+                "volume": 50,
+                "media": true
+            }
+        },
+        {
+            "typer": {
+                "string": "mmulti"
+            },
+            "player": {
+                "volume": 50,
+                "media": true
+            }
         }
     ],
-    "redo_stack": []
+    "redo_stack": [
+        {
+            "typer": {
+                "string": "mmultiprog"
+            },
+            "player": {
+                "volume": 60,
+                "media": true
+            }
+        },
+        {
+            "typer": {
+                "string": "mmultipro"
+            },
+            "player": {
+                "volume": 60,
+                "media": true
+            }
+        },
+        {
+            "typer": {
+                "string": "mmultipr"
+            },
+            "player": {
+                "volume": 60,
+                "media": true
+            }
+        },
+        {
+            "typer": {
+                "string": "mmultip"
+            },
+            "player": {
+                "volume": 60,
+                "media": true
+            }
+        }
+    ]
 }

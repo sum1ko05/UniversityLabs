@@ -1,5 +1,5 @@
 from typing import Protocol
-from virtual_receiver import VirtualReceiver
+from virtual_receiver import SaveableTyper, SaveableMediaPlayer
 from memento import MementoManagerProtocol
 
 
@@ -9,7 +9,7 @@ class CommandProtocol(Protocol):
 
 
 class KeyCommand(CommandProtocol):
-    def __init__(self, executor: VirtualReceiver):
+    def __init__(self, executor: SaveableTyper):
         self.__executor = executor
 
     def execute(self, **kwargs):
@@ -17,7 +17,7 @@ class KeyCommand(CommandProtocol):
 
 
 class VolumeUpCommand(CommandProtocol):
-    def __init__(self, executor: VirtualReceiver):
+    def __init__(self, executor: SaveableMediaPlayer):
         self.__executor = executor
 
     def execute(self, **kwargs):
@@ -25,7 +25,7 @@ class VolumeUpCommand(CommandProtocol):
 
 
 class VolumeDownCommand(CommandProtocol):
-    def __init__(self, executor: VirtualReceiver):
+    def __init__(self, executor: SaveableMediaPlayer):
         self.__executor = executor
 
     def execute(self, **kwargs):
@@ -33,7 +33,7 @@ class VolumeDownCommand(CommandProtocol):
 
 
 class MediaPlayerCommand(CommandProtocol):
-    def __init__(self, executor: VirtualReceiver):
+    def __init__(self, executor: SaveableMediaPlayer):
         self.__executor = executor
 
     def execute(self, **kwargs):
