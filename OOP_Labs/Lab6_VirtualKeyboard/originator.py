@@ -42,22 +42,3 @@ class CompositeOriginator:
             if name in self._originators.keys():
                 state = composite_state[name]
                 self._originators[name].load_memento(SaveableMemento(state))
-
-    def create_memento(self) -> SaveableMemento:
-        print("Memento saved")
-        return SaveableMemento({'string': self.__string,
-                                # 'console': self.neat_console,
-                                'volume': self.__volume,
-                                'media': self.media_player_state})
-
-    def load_memento(self, memento: SaveableMemento):
-        state = memento.get_state()
-        self.__string = state['string']
-        # self.neat_console = state['console']
-        self.__volume = state['volume']
-        self.media_player_state = state['media']
-
-        print("Memento loaded")
-        self.neat_console.print(self.__string)
-        print(f"Volume: {self.__volume}")
-        print(f"Media player {"ON" if self.media_player_state == True else "OFF"}")

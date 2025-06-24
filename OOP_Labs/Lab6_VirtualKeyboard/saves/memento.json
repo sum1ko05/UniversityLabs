@@ -1,11 +1,11 @@
 {
     "current_memento": {
         "typer": {
-            "string": "mmulti"
+            "string": "sski"
         },
         "player": {
-            "volume": 60,
-            "media": true
+            "volume": 20,
+            "media": false
         }
     },
     "undo_stack": [
@@ -20,7 +20,7 @@
         },
         {
             "typer": {
-                "string": "m"
+                "string": "s"
             },
             "player": {
                 "volume": 50,
@@ -29,7 +29,7 @@
         },
         {
             "typer": {
-                "string": "mm"
+                "string": "ss"
             },
             "player": {
                 "volume": 50,
@@ -38,7 +38,7 @@
         },
         {
             "typer": {
-                "string": "mmu"
+                "string": "ssk"
             },
             "player": {
                 "volume": 50,
@@ -47,7 +47,7 @@
         },
         {
             "typer": {
-                "string": "mmul"
+                "string": "sski"
             },
             "player": {
                 "volume": 50,
@@ -56,68 +56,94 @@
         },
         {
             "typer": {
-                "string": "mmul"
+                "string": "sskib"
             },
             "player": {
                 "volume": 50,
-                "media": true
+                "media": false
             }
         },
         {
             "typer": {
-                "string": "mmult"
+                "string": "sskibi"
             },
             "player": {
                 "volume": 50,
-                "media": true
+                "media": false
             }
         },
         {
             "typer": {
-                "string": "mmulti"
+                "string": "sskibid"
             },
             "player": {
                 "volume": 50,
-                "media": true
+                "media": false
+            }
+        },
+        {
+            "typer": {
+                "string": "sskibidi"
+            },
+            "player": {
+                "volume": 50,
+                "media": false
+            }
+        },
+        {
+            "typer": {
+                "string": "sskibid"
+            },
+            "player": {
+                "volume": 50,
+                "media": false
+            }
+        },
+        {
+            "typer": {
+                "string": "sskibi"
+            },
+            "player": {
+                "volume": 50,
+                "media": false
+            }
+        },
+        {
+            "typer": {
+                "string": "sskib"
+            },
+            "player": {
+                "volume": 50,
+                "media": false
+            }
+        },
+        {
+            "typer": {
+                "string": "sski"
+            },
+            "player": {
+                "volume": 50,
+                "media": false
+            }
+        },
+        {
+            "typer": {
+                "string": "sski"
+            },
+            "player": {
+                "volume": 40,
+                "media": false
+            }
+        },
+        {
+            "typer": {
+                "string": "sski"
+            },
+            "player": {
+                "volume": 30,
+                "media": false
             }
         }
     ],
-    "redo_stack": [
-        {
-            "typer": {
-                "string": "mmultiprog"
-            },
-            "player": {
-                "volume": 60,
-                "media": true
-            }
-        },
-        {
-            "typer": {
-                "string": "mmultipro"
-            },
-            "player": {
-                "volume": 60,
-                "media": true
-            }
-        },
-        {
-            "typer": {
-                "string": "mmultipr"
-            },
-            "player": {
-                "volume": 60,
-                "media": true
-            }
-        },
-        {
-            "typer": {
-                "string": "mmultip"
-            },
-            "player": {
-                "volume": 60,
-                "media": true
-            }
-        }
-    ]
+    "redo_stack": []
 }
