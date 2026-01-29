@@ -2,6 +2,7 @@
 
 ## 👩‍💻 Автор
 ФИО: Хуснутдинов Роман Сергеевич
+
 Группа: 2ИП-1
 
 ---
@@ -36,17 +37,17 @@
 
 📸 Скриншоты работы
 
-![Скриншот этапа 1](/screenshots/stage1.png)
+![Скриншот этапа 1](/nginx-lab/screenshots/stage1.png)
 
-![Скриншот этапа 2](/screenshots/stage2.png)
+![Скриншот этапа 2](/nginx-lab/screenshots/stage2.png)
 
-![Скриншот этапа 3](/screenshots/stage3.png)
+![Скриншот этапа 3](/nginx-lab/screenshots/stage3.png)
 
-![Скриншот этапа 4, эксперимент 1](/screenshots/stage4_index_change.png)
+![Скриншот этапа 4, эксперимент 1](/nginx-lab/screenshots/stage4_index_change.png)
 
-![Скриншот этапа 4, эксперимент 2](/screenshots/stage4_new_page.png)
+![Скриншот этапа 4, эксперимент 2](/nginx-lab/screenshots/stage4_new_page.png)
 
-![Скриншот этапа 4, эксперимент 3](/screenshots/stage4_new_port.png)
+![Скриншот этапа 4, эксперимент 3](/nginx-lab/screenshots/stage4_new_port.png)
 
 ✅ Результат
 
