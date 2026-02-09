@@ -1,4 +1,4 @@
-# Лабораторная работа №1: Nginx + Docker
+# Лабораторная работа №2: PHP-FPM
 
 ## 👩‍💻 Автор
 ФИО: Хуснутдинов Роман Сергеевич
@@ -8,7 +8,15 @@
 ---
 
 ## 📌 Описание задания
-Создать веб-сервер в Docker с использованием Nginx и подключить HTML-страницу.  
+
+1. Научиться конфигурировать веб-сервер Nginx для работы с PHP через PHP-FPM.
+
+2. Освоить базовые принципы PHP (на примере phpinfo()).
+
+3. Повторить основы HTML: работа с формами, различными типами полей ввода.
+
+4. Освоить базовую обработку форм с помощью JavaScript без перезагрузки страницы.
+  
 Результат доступен по адресу [http://localhost:8080](http://localhost:8080).
 
 ---
@@ -18,7 +26,7 @@
 1. Клонировать ветку репозитория:
    ```bash
    git clone -b web https://github.com/sum1ko05/UniversityLabs.git
-   cd UniversityLabs/nginx-lab
+   cd UniversityLabs/php-fpm-lab
    ```
 2. Запустить контейнеры:
    ```bash
@@ -36,18 +44,6 @@
 ```screenshots/``` — все скриншоты
 
 📸 Скриншоты работы
-
-![Скриншот этапа 1](/nginx-lab/screenshots/stage1.png)
-
-![Скриншот этапа 2](/nginx-lab/screenshots/stage2.png)
-
-![Скриншот этапа 3](/nginx-lab/screenshots/stage3.png)
-
-![Скриншот этапа 4, эксперимент 1](/nginx-lab/screenshots/stage4_index_change.png)
-
-![Скриншот этапа 4, эксперимент 2](/nginx-lab/screenshots/stage4_new_page.png)
-
-![Скриншот этапа 4, эксперимент 3](/nginx-lab/screenshots/stage4_new_port.png)
 
 ✅ Результат
 
