@@ -37,14 +37,18 @@
 
 📂 Содержимое проекта
 
-```docker-compose.yml``` — описание сервиса Nginx
+```docker-compose.yml``` — описание сервисов Nginx и PHP
 
-```code/index.html``` — главная HTML-страница
+```www/index.html``` — главная HTML-страница
+
+```nginx/nginx.conf``` — конфигурационный файл Nginx
 
 ```screenshots/``` — все скриншоты
 
 📸 Скриншоты работы
 
+![Скриншот этапа 3](/php-fpm-lab/screenshots/stage_3.png)
+
 ✅ Результат
 
-Сервер в Docker успешно запущен, Nginx отдаёт мою HTML-страницу.
+PHP запущен, форма обрабатывается с помощью JavaScript без перезагрузки страницы.
