@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 $username = htmlspecialchars($_POST['username']);
@@ -10,4 +11,5 @@ $_SESSION['email'] = $email;
 
 header("Location: index.php");
 exit();
+
 ?>
