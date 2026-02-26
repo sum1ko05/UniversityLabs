@@ -1,0 +1,19 @@
+{
+    "name": "sum1ko05/php-composer-lab",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sum1ko05\\PhpComposerLab\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sum1ko05",
+            "email": "152371497+sum1ko05@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.10"
+    }
+}
