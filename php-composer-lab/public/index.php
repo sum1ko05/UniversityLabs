@@ -17,14 +17,29 @@
         <?php else: ?>
             <p>Данных пока нет.</p>
         <?php endif; ?>
+    </div>
+    <div class="errors">
+        <?php if(isset($_SESSION['errors'])): ?>
+            <h2>Данные не сохранены!</h2>
+            <ul>
+                <?php foreach($_SESSION['errors'] as $error): ?>
+                    <li><?= $error ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <?php unset($_SESSION['errors']); ?>
+        <?php endif; ?>
+    </div>
+    <div class="session_data">
         <?php
             require_once 'classes/UserInfo.php';
             $info = UserInfo::getInfo();
 
             echo "<h3>Информация о пользователе:</h3>";
+            echo "<ul>";
             foreach ($info as $key => $val) {
                 echo htmlspecialchars($key) . ': ' . htmlspecialchars($val) . '<br>';
             }
+            echo "</ul>";
 
             if (isset($_SESSION['api_data'])) {
                 echo "<h3>Данные из API:</h3>";
@@ -35,16 +50,5 @@
     <div class="form_and_view_links">
         <a href="form.html">Заполнить форму</a> |
         <a href="view.php">Посмотреть все данные</a>
-    </div>
-    <div class="errors">
-        <?php if(isset($_SESSION['errors'])): ?>
-            <ul>
-                <p>Данные не сохранены!</p>
-                <?php foreach($_SESSION['errors'] as $error): ?>
-                    <li><?= $error ?></li>
-                <?php endforeach; ?>
-            </ul>
-            <?php unset($_SESSION['errors']); ?>
-        <?php endif; ?>
     </div>
 </body>
