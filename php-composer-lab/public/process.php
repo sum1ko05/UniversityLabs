@@ -2,6 +2,9 @@
 
 session_start();
 
+//Saving cookie right after submitting
+setcookie("last_submission", date('Y-m-d H:i:s'), time() + 3600, "/");
+
 // Pull data from form
 $username = htmlspecialchars($_POST['username']);
 $email = htmlspecialchars($_POST['email'] ?? '');
