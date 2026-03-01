@@ -17,6 +17,12 @@
         <?php else: ?>
             <p>Данных пока нет.</p>
         <?php endif; ?>
+        <?php
+            if (isset($_SESSION['api_data'])) {
+                echo "<h3>Данные из API:</h3>";
+                echo "<pre>" . print_r($_SESSION['api_data'], true) . "</pre>";
+            }            
+        ?>
     </div>
     <div class="form_and_view_links">
         <a href="form.html">Заполнить форму</a> |

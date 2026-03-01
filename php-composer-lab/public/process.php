@@ -26,6 +26,15 @@ $_SESSION['email'] = $email;
 $line = $username . ";" . $email . "\n";
 file_put_contents("data/data.txt", $line, FILE_APPEND);
 
+// Form handling finished, add external API data to session
+require_once 'classes/ApiClient.php';
+$api = new ApiClient();
+
+$url = 'https://dummyjson.com/products/category/furniture';
+$apiData = $api->request($url);
+
+$_SESSION['api_data'] = $apiData;
+
 // Redirect to index.php
 header("Location: index.php");
 exit();
