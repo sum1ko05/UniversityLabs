@@ -8,10 +8,10 @@
 </head>
 <body>
     <div class="session_data">
-        <?php if(isset($_SESSION['username'])): ?>
+        <?php if(isset($_SESSION['name'])): ?>
             <h2>Данные из сессии:</h2>
             <ul>
-                <li>Имя: <?= $_SESSION['username'] ?></li>
+                <li>Имя: <?= $_SESSION['name'] ?></li>
                 <li>Email: <?= $_SESSION['email'] ?></li>
             </ul>
         <?php else: ?>
@@ -30,7 +30,6 @@
         <?php endif; ?>
     </div>
     <div class="form_and_view_links">
-        <a href="form.html">Заполнить форму</a> |
-        <a href="view.php">Посмотреть все данные</a>
+        <a href="form.html">Заполнить форму</a>
     </div>
 </body>
