@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'db.php';
+require 'classes/db.php';
 require 'classes/Order.php';
 
 $order = new Order($pdo);
@@ -15,7 +15,7 @@ $email = htmlspecialchars($_POST['email'] ?? '');
 $model = htmlspecialchars($_POST['model']);
 $amount = intval($_POST['amount'] ?? 1);
 $assembly_included = isset($_POST['assembly_included']) ? 1 : 0;
-$delivery = htmlspecialchars($_POST['email'] ?? '');
+$delivery = htmlspecialchars($_POST['delivery'] ?? '');
 
 // Validate form data first
 $errors = [];

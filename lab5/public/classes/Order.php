@@ -11,7 +11,7 @@ class Order {
         $stmt = $this->pdo->prepare(
             "INSERT INTO orders (name, email, model, amount, assembly_included, delivery) VALUES (?, ?, ?, ?, ?, ?)"
         );
-        $stmt->execute([$name, $age, $faculty, $agree_rules, $study_form]);
+        $stmt->execute([$name, $email, $model, $amount, $assembly_included, $delivery]);
     }
 
     public function readAll() {

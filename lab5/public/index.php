@@ -29,6 +29,21 @@
             <?php unset($_SESSION['errors']); ?>
         <?php endif; ?>
     </div>
+    <div class="saved_data">
+        <?php
+            require 'classes/db.php';
+            require 'classes/Order.php';
+
+            $order = new Order($pdo);
+            $all = $order->readAll();
+        ?>
+        <h2>Сохранённые данные:</h2>
+        <ul>
+            <?php foreach($all as $row): ?>
+                <li><?= $row['name'] ?> (<?= $row['email'] ?>), <?= $row['model'] ?>, <?= $row['amount'] ?>, Сборка включена: <?= $row['assembly_included'] ? 'Да' : 'Нет' ?>, <?= $row['delivery'] ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
     <div class="form_and_view_links">
         <a href="form.html">Заполнить форму</a>
     </div>
