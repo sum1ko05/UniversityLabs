@@ -1,0 +1,45 @@
+services:
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: lab5_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public/:/var/www/html
+      - ./vendor/:/var/www/html/vendor
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+  php:
+    build:
+      context: .
+      dockerfile: ./php/Dockerfile
+    container_name: lab5_php
+    env_file:
+      - .env
+    volumes:
+      - ./public/:/var/www/html
+      - ./vendor/:/var/www/html/vendor
+      - ./.env/:/var/.env
+    expose:
+      - "9000"
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    container_name: lab5_db
+    env_file:
+      - .env
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db_data/:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+  adminer:
+    image: adminer
+    container_name: lab5_adminer
+    restart: always
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db

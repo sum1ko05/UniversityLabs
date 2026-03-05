@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Заполнение формы</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="common_style.css">
-    </head>
-    <body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Заполнение формы</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="form">
         <h2>Заказ мебели</h2>
         <form id="myForm" action="process.php" method="POST">
-            <input type="text" name="username" placeholder="Введите имя"><br>
-            <input type="text" name="email" placeholder="Введите email"><br>
-            <select name="model">
+            <input type="text" id="fit_text" name="username" placeholder="Введите имя"><br>
+            <input type="text" id="fit_text" name="email" placeholder="Введите email"><br>
+            <select id="fit_input" name="model">
                 <option value="wall-mounted_cabinet">Подвесная тумба</option>
                 <option value="bedside_cabinet">Прикроватная тумба</option>
                 <option value="chair">Стул</option>
@@ -20,9 +21,7 @@
             Способ доставки: <br>
             <input type="radio" name="delivery" value="pickup_delivery"> Самовывоз<br>
             <input type="radio" name="delivery" value="home_delivery"> Доставка на дом<br>
-            <button type="submit">Отправить</button>
+            <button id="fit_input" type="submit">Отправить</button>
         </form>
-
-        <script src="script.js"></script>            
-    </body>
-</html>
+    </div>
+</body>

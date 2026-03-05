@@ -2,6 +2,9 @@
 
 session_start();
 
+//Saving cookie right after submitting
+setcookie("last_submission", date('Y-m-d H:i:s'), time() + 3600, "/");
+
 // Pull data from form
 $username = htmlspecialchars($_POST['username']);
 $email = htmlspecialchars($_POST['email'] ?? '');
@@ -24,7 +27,16 @@ $_SESSION['email'] = $email;
 
 // Write form data to external text file
 $line = $username . ";" . $email . "\n";
-file_put_contents("data.txt", $line, FILE_APPEND);
+file_put_contents("data/data.txt", $line, FILE_APPEND);
+
+// Form handling finished, add external API data to session
+require_once 'classes/ApiClient.php';
+$api = new ApiClient();
+
+$url = 'https://dummyjson.com/products/category/furniture';
+$apiData = $api->request($url);
+
+$_SESSION['api_data'] = $apiData;
 
 // Redirect to index.php
 header("Location: index.php");
