@@ -1,0 +1,19 @@
+{
+    "name": "sum1ko05/lab6",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sum1ko05\\Lab6\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sum1ko05",
+            "email": "152371497+sum1ko05@users.noreply.github.com"
+        }
+    ]
+}
