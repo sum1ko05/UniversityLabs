@@ -21,7 +21,7 @@ $search_entry = htmlspecialchars($_POST['search_entry']);
     <h3 class="small_website_title">SMS</h1>
     <form id="search_entry" action="search.php" method="POST">
         <input type="text" name="search_entry" placeholder="">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <button type="submit">Search</button>
     </form>
     <?php
         echo $elastic->search('movies', ['title' => $search_entry]);

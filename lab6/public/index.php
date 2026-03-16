@@ -29,6 +29,6 @@ foreach($moviesapi_data as $entry)
     <h1 class="website_title">Study movie search</h1>
     <form id="search_entry" action="search.php" method="POST">
         <input type="text" name="search_entry" placeholder="">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <button type="submit">Search</i></button>
     </form>
 </body>
