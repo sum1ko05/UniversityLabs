@@ -3,7 +3,7 @@
 namespace App;
 
 require 'vendor/autoload.php';
-require 'ClientFactory.php';
+require_once 'ClientFactory.php';
 
 use App\Helpers\ClientFactory;
 
@@ -13,7 +13,7 @@ class ElasticClient
 
     public function __construct()
     {
-        $this->client = ClientFactory::make('http://elasticsearch:9200/');
+        $this->client = ClientFactory::make('http://elasticsearch:9200');
     }
 
     public function indexDocument($index, $id, $data)
