@@ -1,8 +1,10 @@
 <?php
-/*
+//echo getcwd();
 require 'vendor/autoload.php';
 require 'classes/clients/ElasticClient.php';
 require 'classes/clients/MoviesApiClient.php';
+
+//echo("Require passed\n");
 
 use App\ElasticClient;
 use App\MoviesApiClient;
@@ -10,27 +12,22 @@ use App\MoviesApiClient;
 $elastic = new ElasticClient();
 $moviesapi = new MoviesApiClient();
 
+//echo("Clients creation passed\n");
+
 $moviesapi_data = json_decode($moviesapi->get_all(), true)['data'];
+
+//echo("Data fetched\n");
 // Pass data from api to Elastic
+//$elastic->indexBulk('movies', $moviesapi_data);
+
 foreach($moviesapi_data as $entry)
 {
     $entry_id = $entry['id'];
-    unset($entry['id']);
     $elastic->indexDocument('movies', $entry_id, $entry);
 }
-*/
+
+//echo("Data indexed\n");
+
+header("Location: index.php");
+exit();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Study movie search</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    <h1 class="website_title">Study movie search</h1>
-    <form id="search_entry" action="search.php" method="POST">
-        <input type="text" name="search_entry" placeholder="">
-        <button type="submit">Search</i></button>
-    </form>
-</body>

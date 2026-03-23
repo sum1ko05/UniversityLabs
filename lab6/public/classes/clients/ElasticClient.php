@@ -24,6 +24,14 @@ class ElasticClient
         return $response->getBody()->getContents();
     }
 
+    public function indexBulk($index, $data)
+    {
+        $response = $this->client->put("$index/_bulk", [
+            'json' => $data
+        ]);
+        return $response->getBody()->getContents();
+    }
+
     public function search($index, $query)
     {
         $response = $this->client->get("$index/_search", [
