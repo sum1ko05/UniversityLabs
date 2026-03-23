@@ -28,6 +28,6 @@ foreach($moviesapi_data as $entry)
 
 //echo("Data indexed\n");
 
-header("Location: index.php");
+header("Location: index.html");
 exit();
 ?>
