@@ -18,6 +18,8 @@ class OrderTest extends TestCase
         $this->pdo_mock = $this->createMock(PDO::class);
         $this->pdo_mock->method("prepare")
                         ->willReturn($stmt_mock);
+        $this->pdo_mock->method("query")
+                        ->willReturn($stmt_mock);
 
         #var_dump($this->$pdo_mock);
         
@@ -36,5 +38,12 @@ class OrderTest extends TestCase
         #var_dump($result);
 
         $this->assertEquals(null, $result);
+    }
+
+    public function testReadAll()
+    {
+        $result = $this->order->readAll();
+
+        $this->assertEquals([], $result);
     }
 }
