@@ -37,13 +37,14 @@ Adminer доступен по адресу [http://localhost:8082](http://localh
    git clone -b web https://github.com/sum1ko05/UniversityLabs.git
    cd UniversityLabs/php-composer-lab
    ```
-2. Запустить контейнеры:
+2. ВАЖНО! Добавить в проект каталог для базы данных и .env файл и указать их в ```docker-compose.yml```
+3. Запустить контейнеры:
    ```bash
    docker compose up -d --build
    ```
-3. Открыть в браузере главную страницу:
+4. Открыть в браузере главную страницу:
    ```http://localhost:8080```
-4. (Опционально) Запустить тесты:
+5. (Опционально) Запустить тесты:
    ```bash
    vendor/bin/phpunit tests
    ```
