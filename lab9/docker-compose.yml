@@ -19,6 +19,7 @@ services:
       - .env
     volumes:
       - ./public/:/var/www/html
+      - ./app/:/var/www/app
       - ./vendor/:/var/www/html/vendor
     expose:
       - "9000"
