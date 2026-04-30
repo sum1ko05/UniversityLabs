@@ -23,7 +23,7 @@
 
 Результат доступен по адресу [http://localhost:8080](http://localhost:8080).
 
-Adminer доступен по адресу [http://localhost:8082](http://localhost:8082).
+Adminer доступен по адресу [http://localhost:8083](http://localhost:8083).
 
 ---
 
@@ -32,7 +32,7 @@ Adminer доступен по адресу [http://localhost:8082](http://localh
 1. Клонировать ветку репозитория:
    ```bash
    git clone -b web https://github.com/sum1ko05/UniversityLabs.git
-   cd UniversityLabs/php-composer-lab
+   cd UniversityLabs/lab9
    ```
 2. ВАЖНО! Добавить в проект каталог для базы данных и .env файл и указать их в ```docker-compose.yml```
 3. Запустить контейнеры:

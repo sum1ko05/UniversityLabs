@@ -1,0 +1,17 @@
+{
+    "name": "sumiko05/lab9",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^7.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sum1ko05",
+            "email": "152371497+sum1ko05@users.noreply.github.com"
+        }
+    ]
+}
