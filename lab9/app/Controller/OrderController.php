@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\DTO\OrderDTO;
 
 class OrderController
-{
+{    
     public function getOrderFromSession(): OrderDTO
     {
         $name = htmlspecialchars($_POST['username']);
@@ -15,6 +15,6 @@ class OrderController
         $assembly_included = isset($_POST['assembly_included']);
         $delivery = htmlspecialchars($_POST['delivery'] ?? '');
 
-        return OrderDTO($name, $email, $model, $amount, $assembly_included, $delivery);
+        return new OrderDTO($name, $email, $model, $amount, $assembly_included, $delivery);
     }
 }
