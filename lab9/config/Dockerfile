@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www/html
-#COPY ./public /var/www/html
+WORKDIR /var/www
+COPY ./composer.json /var/www/composer.json
+COPY ./composer.lock /var/www/composer.lock
 
 CMD ["php-fpm"]
