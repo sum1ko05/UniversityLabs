@@ -2,13 +2,13 @@
 
 namespace App\Repository;
 
-require_once __DIR__."/../vendor/autoload.php";
+require_once __DIR__."/../../vendor/autoload.php";
 
 use PDO;
 
 class PDOFactory
 {
-    public function createFromEnv()
+    public function createFromEnv(): PDO
     {
         $host = getenv("MYSQL_HOST");
         $db   = getenv("MYSQL_DATABASE");
@@ -31,5 +31,6 @@ class PDOFactory
             echo "Connection error: " . $e->getMessage();
             exit();
         }
+        return $pdo;
     }
 }

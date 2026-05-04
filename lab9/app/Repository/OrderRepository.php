@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-require_once __DIR__."/../vendor/autoload.php";
+require_once __DIR__."/../../vendor/autoload.php";
 
 use App\DTO\OrderDTO;
 use PDO;
@@ -26,7 +26,7 @@ class OrderRepository
                         $order->customerEmail, 
                         $order->itemModel, 
                         $order->itemAmount, 
-                        $order->assemblyIncluded, 
+                        $order->assemblyIncluded ? 1 : 0, 
                         $order->deliveryType]);
     }
 

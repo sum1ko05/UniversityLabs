@@ -12,7 +12,7 @@ class OrderValidationService implements IOrderService
 {
     private Array $exceptions;
     
-    public function execute(OrderDTO $dto): void
+    public function execute(?OrderDTO $dto = null, ?Array $params = null): void
     {
         if (!$this->isDTOValid($dto))
         {

@@ -18,5 +18,5 @@ class ExceptionArray extends Exception
         $this->exceptions = $exceptions; 
     }
 
-    public function GetOptions(): Array { return $this->exceptions; }
+    public function GetExceptions(): Array { return $this->exceptions; }
 }

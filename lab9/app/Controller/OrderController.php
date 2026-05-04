@@ -6,7 +6,7 @@ use App\DTO\OrderDTO;
 
 class OrderController
 {    
-    public function getOrderFromSession(): OrderDTO
+    public function getOrderFromPOST(): OrderDTO
     {
         $name = htmlspecialchars($_POST['username']);
         $email = htmlspecialchars($_POST['email'] ?? '');
