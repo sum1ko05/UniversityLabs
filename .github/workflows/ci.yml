@@ -14,6 +14,15 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v3
 
+      - name: Create .env
+        run: |
+          touch .env
+          echo "MYSQL_ROOT_PASSWORD=${{MYSQL_ROOT_PASSWORD}}" >> .env
+          echo "MYSQL_DATABASE=${{MYSQL_DATABASE}}" >> .env
+          echo "MYSQL_USER=${{MYSQL_USER}}" >> .env
+          echo "MYSQL_PASSWORD=${{MYSQL_PASSWORD}}" >> .env
+          echo "MYSQL_HOST=${{MYSQL_HOST}}" >> .env
+
       - name: Start docker
         run: docker compose up -d --build
 
