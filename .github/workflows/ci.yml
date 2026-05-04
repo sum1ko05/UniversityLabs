@@ -6,6 +6,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-lastest
+    defaults:
+      run:
+        working-directory: ./lab9
 
     steps:
       - name: Clone repo
