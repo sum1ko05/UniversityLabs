@@ -7,6 +7,7 @@ services:
     volumes:
       - ./public/:/var/www/html
       - ./app/:/var/www/app
+      - ./tests/:var/www/tests
       - ./vendor/:/var/www/vendor
       - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
@@ -21,6 +22,7 @@ services:
     volumes:
       - ./public/:/var/www/html
       - ./app/:/var/www/app
+      - ./tests/:var/www/tests
       - ./vendor/:/var/www/vendor
     expose:
       - "9000"
