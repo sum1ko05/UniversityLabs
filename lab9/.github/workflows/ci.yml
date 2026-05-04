@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - web
+
+jobs:
+  test:
+    runs-on: ubuntu-lastest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v3
+
+      - name: Start docker
+        run: docker compose up -d --build
+
+      - name: Install dependencies
+        run: docker compose exec -T php composer install
+
+      - name: Run tests
+        run: docker compose exec -T php vendor/bin/phpunit tests
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down
+
